@@ -72,7 +72,14 @@ describe('Playing the game', function() {
     const mineSweeper = new Minesweeper();
     mineSweeper.fillMines();
     mineSweeper.fillAdjacentMinesNumbers();
-    mineSweeper.pickColumn(0,0);
+    mineSweeper.pickColumn(0, 0);
     expect(mineSweeper.gameField[0][0] === mineSweeper.playerField[0][0]).toBe(true);
+  });
+
+  it('should lose the game', function() {
+    const mineSweeper = new Minesweeper();
+    mineSweeper.putMine(0, 0);
+    mineSweeper.pickColumn(0, 0);
+    expect(mineSweeper.checkEnd()).toBe(true);
   });
 });

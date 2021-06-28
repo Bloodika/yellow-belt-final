@@ -60,6 +60,12 @@ Given a filled board \
 When I play the game \
 Then I would like to be able to play on the board
 
+### UAT3.2
+
+Given a filled board \
+When I play the game \
+Then I would like to know whether lost or not
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶
