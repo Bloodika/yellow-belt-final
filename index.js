@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 class Minesweeper {
 
   constructor() {
@@ -65,7 +67,7 @@ class Minesweeper {
   }
 
   getRandomNumberBetween(low, high) {
-    return Math.floor(Math.random() * high) + low;
+    return crypto.randomInt(low, high);
   }
 
   putMine(row, column) {
