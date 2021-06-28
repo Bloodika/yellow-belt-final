@@ -83,12 +83,18 @@ describe('Minesweeper game tests', function() {
       mineSweeper.putMine(1, 1);
       mineSweeper.pickColumn(1, 1);
       expect(mineSweeper.checkEnd()).toBe(true);
-      printBoard(mineSweeper.playerFields, "BOOM! - Game Over.")
+      printBoard(mineSweeper.playerFields, 'BOOM! - Game Over.');
     });
 
     it('should win the game', function() {
       const mineSweeper = new Minesweeper();
       expect(mineSweeper.checkEnd()).toBe(false);
+    });
+
+    it('should be able to mark columns on the board', function() {
+      const mineSweeper = new Minesweeper();
+      mineSweeper.putMark(0, 0);
+      expect(mineSweeper.playerFields[0][0]).toBe('*');
     });
 
   });

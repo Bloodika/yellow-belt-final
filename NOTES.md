@@ -76,7 +76,7 @@ Then I would like to know whether won or not
 
 Given a filled board \
 When I play the game \
-Then I would like to mark mines on the board
+Then I would like to mark columns on the board
 
 # TechDebt
 

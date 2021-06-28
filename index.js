@@ -24,7 +24,7 @@ class Minesweeper {
     for (let row = 0; row < this.gameField.length; row++) {
       const currentRow = this.gameField[row];
       for (let column = 0; column < currentRow.length; column++) {
-        if (!this.checkFieldForMine(row,column)) {
+        if (!this.checkFieldForMine(row, column)) {
           this.gameField[row][column] = this.findAdjacent(row, column);
         }
       }
@@ -65,6 +65,10 @@ class Minesweeper {
 
   putMine(row, column) {
     this.gameField[row][column] = 'x';
+  }
+
+  putMark(row, column) {
+    this.playerFields[row][column] = '*';
   }
 
   pickColumn(row, column) {
