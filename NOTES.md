@@ -78,6 +78,13 @@ Given a filled board \
 When I play the game \
 Then I would like to mark columns on the board
 
+### UAT3.5 🐼
+
+Given a filled board \
+When I play the game \
+Then I would like to win after marking all the bombs
+
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶
@@ -85,3 +92,4 @@ Then I would like to mark columns on the board
 - How many mines do the table need? 🐶
 - Can be a board without mines? 🐶
 - When do I need to populate the board with mines? (first pick -> lose) 🐶
+- What if I mark all the columns? Do I win instantly? 🐶

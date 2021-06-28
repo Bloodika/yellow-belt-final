@@ -76,7 +76,15 @@ class Minesweeper {
   }
 
   checkEnd() {
-    return this.playerFields.filter((row) => row.includes('x')).length > 0;
+    let markedBombs = 0;
+    for (let row = 0; row < this.playerFields.length; row++) {
+      for (let column = 0; column < this.playerFields[row].length; column++) {
+        if (this.checkFieldForMine(row, column) && this.playerFields[row][column] === '*') {
+          markedBombs += 1;
+        }
+      }
+    }
+    return this.playerFields.filter((row) => row.includes('x')).length > 0 || markedBombs === 3;
   }
 }
 

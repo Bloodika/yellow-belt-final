@@ -116,5 +116,20 @@ describe('Minesweeper game tests', function() {
       printBoard(mineSweeper.playerFields, 'Square flagged as bomb.');
     });
 
+    it('should win the game after marking all bombs', function() {
+      const mineSweeper = new Minesweeper();
+      mineSweeper.putMine(1, 0);
+      mineSweeper.putMine(1, 1);
+      mineSweeper.putMine(2, 1);
+      mineSweeper.fillAdjacentMinesNumbers()
+      mineSweeper.playerFields = lodash.cloneDeep(mineSweeper.gameField);
+      mineSweeper.putMark(1,0);
+      mineSweeper.putMark(1,1);
+      mineSweeper.putMark(2,1);
+
+      expect(mineSweeper.checkEnd()).toBe(true);
+      printBoard(mineSweeper.playerFields, 'the land is cleared! GOOD JOB!');
+    });
+
   });
 });
