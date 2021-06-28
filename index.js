@@ -1,7 +1,11 @@
 class Main {
-  main() {
-    return 0;
+  playerField;
+
+
+  constructor() {
+    this.playerField = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
   }
+
 }
 
 module.exports = Main;
