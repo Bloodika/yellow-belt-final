@@ -30,6 +30,12 @@ Given an empty board \
 When I want to play the game \
 Then the board need to contain mines
 
+### UAT2.2
+
+Given an empty board \
+When I want to play the game \
+Then the board needs 3 mines
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶

@@ -36,7 +36,16 @@ describe('Board filling', function() {
   it('should contain mines', function() {
     const main = new Main();
     main.fillMines();
-    const areThereMines = main.gameField.filter(row => row.includes("x")).length > 0;
+    const areThereMines = main.gameField.filter(row => row.includes('x')).length > 0;
     expect(areThereMines).toBe(true);
   });
+
+  it('should contain 3 mines', function() {
+    const main = new Main();
+    main.fillMines();
+    let mineCounter = 0;
+    main.gameField.forEach(row => row.forEach(column => mineCounter += column === 'x'));
+    expect(mineCounter).toBe(3);
+  });
+
 });
