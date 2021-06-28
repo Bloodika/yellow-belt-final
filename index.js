@@ -14,8 +14,19 @@ class Main {
       const currentRow = this.getRandomNumberBetween(0, 2);
       const currentColumn = this.getRandomNumberBetween(0, 2);
       if (!this.checkFieldForMine(currentRow, currentColumn)) {
-        this.putMine(currentRow,currentColumn);
+        this.putMine(currentRow, currentColumn);
         mineCounter++;
+      }
+    }
+  }
+
+  fillAdjacentMinesNumbers() {
+    for (let row = 0; row < this.gameField.length; row++) {
+      const currentRow = this.gameField[row];
+      for (let column = 0; column < currentRow.length; column++) {
+        if (!this.checkFieldForMine(row,column)) {
+          this.gameField[row][column] = this.findAdjacent(row, column);
+        }
       }
     }
   }
@@ -53,7 +64,7 @@ class Main {
   }
 
   putMine(row, column) {
-    this.gameField[row][column] = "x";
+    this.gameField[row][column] = 'x';
   }
 
 }

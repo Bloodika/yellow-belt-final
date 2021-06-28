@@ -42,6 +42,12 @@ Given a board with mines \
 When I want to play the game \
 Then the board needs to know the number of adjacent mines
 
+### UAT2.4
+
+Given a board with mines \
+When I want to play the game \
+Then the board needs to be filled with numbers
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶

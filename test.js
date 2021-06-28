@@ -56,4 +56,13 @@ describe('Board filling', function() {
     expect(main.findAdjacent(0, 0)).toBe(3);
   });
 
+  it('should fill the board with adjacent mine numbers', function() {
+    const main = new Main();
+    main.fillMines();
+    main.fillAdjacentMinesNumbers();
+    let areThereNumbers = 0;
+    main.gameField.forEach(row => row.forEach(column => areThereNumbers += Number.isInteger(column)));
+    expect(areThereNumbers).toBe(6);
+  });
+
 });
