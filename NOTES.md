@@ -48,9 +48,22 @@ Given a board with mines \
 When I want to play the game \
 Then the board needs to be filled with numbers
 
+## US3
+
+As a user \
+I would like to play the game \
+So I can have fun
+
+### UAT3.1
+
+Given a filled board \
+When I play the game \
+Then I would like to be able to play on the board
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶
 - Does it need randomness when it comes to mine? 🐶
 - How many mines do the table need? 🐶
-
+- Can be a board without mines? 🐶
+- When do I need to populate the board with mines? (first pick -> lose) 🐶

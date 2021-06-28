@@ -67,6 +67,9 @@ class Minesweeper {
     this.gameField[row][column] = 'x';
   }
 
+  pickColumn(row, column) {
+    this.playerField[row][column] = this.gameField[row][column];
+  }
 }
 
 module.exports = Minesweeper;
