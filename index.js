@@ -22,10 +22,14 @@ class Minesweeper {
       const currentRow = this.gameField[row];
       for (let column = 0; column < currentRow.length; column++) {
         if (!this.checkFieldForMine(row, column)) {
-          this.gameField[row][column] = this.findAdjacent(row, column);
+          this.putNumberToColumn(row, column);
         }
       }
     }
+  }
+
+  putNumberToColumn(row, column) {
+    this.gameField[row][column] = this.findAdjacent(row, column);
   }
 
   checkFieldForMine(currentRow, currentColumn) {
@@ -48,12 +52,16 @@ class Minesweeper {
     adjacents.forEach((adjacent) => {
       const currentRow = adjacent[0];
       const currentColumn = adjacent[1];
-      if (currentRow <= 2 && currentColumn <= 2 && currentRow >= 0 && currentColumn >= 0 && this.gameField[currentRow][currentColumn] === 'x') {
+      if (this.checkIndexesInRange(currentRow, currentColumn) && this.checkFieldForMine(currentRow, currentColumn)) {
         mineCounter += 1;
       }
     });
 
     return mineCounter;
+  }
+
+  checkIndexesInRange(currentRow, currentColumn) {
+    return currentRow <= 2 && currentColumn <= 2 && currentRow >= 0 && currentColumn >= 0;
   }
 
   getRandomNumberBetween(low, high) {
@@ -76,12 +84,16 @@ class Minesweeper {
     let markedBombs = 0;
     for (let row = 0; row < this.playerFields.length; row++) {
       for (let column = 0; column < this.playerFields[row].length; column++) {
-        if (this.checkFieldForMine(row, column) && this.playerFields[row][column] === '*') {
+        if (this.checkFieldForMine(row, column) && this.checkForMark(row, column)) {
           markedBombs += 1;
         }
       }
     }
     return this.playerFields.filter((row) => row.includes('x')).length > 0 || markedBombs === 3;
+  }
+
+  checkForMark(row, column) {
+    return this.playerFields[row][column] === '*';
   }
 }
 
