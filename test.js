@@ -48,4 +48,12 @@ describe('Board filling', function() {
     expect(mineCounter).toBe(3);
   });
 
+  it('should find adjacent', function() {
+    const main = new Main();
+    main.putMine(0, 1);
+    main.putMine(1, 0);
+    main.putMine(1, 1);
+    expect(main.findAdjacent(0, 0)).toBe(3);
+  });
+
 });
