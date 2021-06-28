@@ -1,10 +1,10 @@
 class Minesweeper {
-  playerField;
+  playerFields;
   gameField;
 
 
   constructor() {
-    this.playerField = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
+    this.playerFields = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
     this.gameField = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
   }
 
@@ -68,11 +68,11 @@ class Minesweeper {
   }
 
   pickColumn(row, column) {
-    this.playerField[row][column] = this.gameField[row][column];
+    this.playerFields[row][column] = this.gameField[row][column];
   }
 
   checkEnd() {
-    return true;
+    return this.playerFields.filter((row) => row.includes('x')).length > 0;
   }
 }
 

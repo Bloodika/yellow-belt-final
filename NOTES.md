@@ -66,6 +66,12 @@ Given a filled board \
 When I play the game \
 Then I would like to know whether lost or not
 
+### UAT3.3
+
+Given a filled board \
+When I play the game \
+Then I would like to know whether won or not
+
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶
