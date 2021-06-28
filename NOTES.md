@@ -72,7 +72,7 @@ Given a filled board \
 When I play the game \
 Then I would like to know whether won or not
 
-### UAT3.4
+### UAT3.4 🐼
 
 Given a filled board \
 When I play the game \
