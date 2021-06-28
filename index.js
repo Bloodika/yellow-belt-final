@@ -1,7 +1,4 @@
 class Minesweeper {
-  playerFields;
-  gameField;
-
 
   constructor() {
     this.playerFields = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
