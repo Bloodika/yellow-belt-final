@@ -84,7 +84,6 @@ Given a filled board \
 When I play the game \
 Then I would like to win after marking all the bombs
 
-
 # TechDebt
 
 - Can it be bigger/smaller than 3x3? 🐶
@@ -93,3 +92,4 @@ Then I would like to win after marking all the bombs
 - Can be a board without mines? 🐶
 - When do I need to populate the board with mines? (first pick -> lose) 🐶
 - What if I mark all the columns? Do I win instantly? 🐶
+- Last UAT Scenario (6) is not possible, ask PO about it 🐶 
