@@ -1,4 +1,4 @@
-const Main = require('./index.js');
+const Minesweeper = require('./index.js');
 const lodash = require('lodash');
 
 const printBoard = (board, message) => {
@@ -19,49 +19,49 @@ const printBoard = (board, message) => {
 
 describe('Board creation', function() {
   it('should create an empty board', function() {
-    const main = new Main();
+    const mineSweeper = new Minesweeper();
     const expected = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
-    expect(lodash.isEqual(main.playerField, expected)).toBe(true);
-    printBoard(main.playerField, 'Game created');
+    expect(lodash.isEqual(mineSweeper.playerField, expected)).toBe(true);
+    printBoard(mineSweeper.playerField, 'Game created');
   });
 
   it('should be a 3x3 matrix', function() {
-    const main = new Main();
-    const is3x3Array = main.playerField.every(row => row.length === 3);
+    const mineSweeper = new Minesweeper();
+    const is3x3Array = mineSweeper.playerField.every(row => row.length === 3);
     expect(is3x3Array).toBe(true);
   });
 });
 
 describe('Board filling', function() {
   it('should contain mines', function() {
-    const main = new Main();
-    main.fillMines();
-    const areThereMines = main.gameField.filter(row => row.includes('x')).length > 0;
+    const mineSweeper = new Minesweeper();
+    mineSweeper.fillMines();
+    const areThereMines = mineSweeper.gameField.filter(row => row.includes('x')).length > 0;
     expect(areThereMines).toBe(true);
   });
 
   it('should contain 3 mines', function() {
-    const main = new Main();
-    main.fillMines();
+    const mineSweeper = new Minesweeper();
+    mineSweeper.fillMines();
     let mineCounter = 0;
-    main.gameField.forEach(row => row.forEach(column => mineCounter += column === 'x'));
+    mineSweeper.gameField.forEach(row => row.forEach(column => mineCounter += column === 'x'));
     expect(mineCounter).toBe(3);
   });
 
   it('should find adjacent', function() {
-    const main = new Main();
-    main.putMine(0, 1);
-    main.putMine(1, 0);
-    main.putMine(1, 1);
-    expect(main.findAdjacent(0, 0)).toBe(3);
+    const mineSweeper = new Minesweeper();
+    mineSweeper.putMine(0, 1);
+    mineSweeper.putMine(1, 0);
+    mineSweeper.putMine(1, 1);
+    expect(mineSweeper.findAdjacent(0, 0)).toBe(3);
   });
 
   it('should fill the board with adjacent mine numbers', function() {
-    const main = new Main();
-    main.fillMines();
-    main.fillAdjacentMinesNumbers();
+    const mineSweeper = new Minesweeper();
+    mineSweeper.fillMines();
+    mineSweeper.fillAdjacentMinesNumbers();
     let areThereNumbers = 0;
-    main.gameField.forEach(row => row.forEach(column => areThereNumbers += Number.isInteger(column)));
+    mineSweeper.gameField.forEach(row => row.forEach(column => areThereNumbers += Number.isInteger(column)));
     expect(areThereNumbers).toBe(6);
   });
 

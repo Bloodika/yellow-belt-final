@@ -1,4 +1,4 @@
-class Main {
+class Minesweeper {
   playerField;
   gameField;
 
@@ -69,4 +69,4 @@ class Main {
 
 }
 
-module.exports = Main;
+module.exports = Minesweeper;
