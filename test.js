@@ -70,6 +70,7 @@ describe('Minesweeper game tests', function() {
   });
 
   describe('Playing the game', function() {
+
     it('should pick the column I chose', function() {
       const mineSweeper = new Minesweeper();
       mineSweeper.fillMines();
@@ -77,6 +78,7 @@ describe('Minesweeper game tests', function() {
       mineSweeper.pickColumn(0, 0);
       expect(mineSweeper.gameField[0][0] === mineSweeper.playerFields[0][0]).toBe(true);
     });
+
 
     it('should lose the game', function() {
       const mineSweeper = new Minesweeper();
@@ -86,6 +88,18 @@ describe('Minesweeper game tests', function() {
       printBoard(mineSweeper.playerFields, 'BOOM! - Game Over.');
     });
 
+
+    it('shouldn\'t lose the game on clean column', function() {
+      const mineSweeper = new Minesweeper();
+      mineSweeper.putMine(1, 0);
+      mineSweeper.putMine(1, 1);
+      mineSweeper.putMine(2, 1);
+      mineSweeper.gameField[2][0] = 3;
+      mineSweeper.pickColumn(2, 0);
+      expect(mineSweeper.checkEnd()).toBe(false);
+      printBoard(mineSweeper.playerFields, `${mineSweeper.findAdjacent(2, 0)} bombs around your square`);
+    });
+
     it('should win the game', function() {
       const mineSweeper = new Minesweeper();
       expect(mineSweeper.checkEnd()).toBe(false);
@@ -93,8 +107,13 @@ describe('Minesweeper game tests', function() {
 
     it('should be able to mark columns on the board', function() {
       const mineSweeper = new Minesweeper();
-      mineSweeper.putMark(0, 0);
-      expect(mineSweeper.playerFields[0][0]).toBe('*');
+      mineSweeper.putMark(1, 0);
+      mineSweeper.putMark(1, 1);
+      mineSweeper.putMark(2, 1);
+      mineSweeper.gameField[2][0] = 3;
+      mineSweeper.pickColumn(2, 0);
+      expect(mineSweeper.playerFields[1][0]).toBe('*');
+      printBoard(mineSweeper.playerFields, 'Square flagged as bomb.');
     });
 
   });
